@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Squeeze hadir untuk membantu anda mengunduh video dari YouTube dalam format berkualitas HD."
+    />
+    <link rel="stylesheet" href="../static/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <title>Squeeze</title>
+    <link rel="icon" type="image/png" href="../static/img/icon.png" />
+  </head>
+  <body onload="todayDate()">
+    <!-- navbar -->
+    <nav class="navbar">
+      <img src="../static/img/Logo.png" class="logo" alt="Logo.jpg" />
+      <ul id="sidemenu">
+        <li><a href="#about">About</a></li>
+        <li><a href="#tutorial">Tutorial</a></li>
+        <li><a href="{{ url_for('terms') }}">Terms & Policy</a></li>
+        <i class="fa-solid fa-xmark" onclick="closemenu()"></i>
+      </ul>
+      <i class="fa-solid fa-bars" onclick="openmenu()"></i>
+    </nav>
+    <!-- form input -->
+    <div class="container">
+      <form method="POST" action="/download">
+        <h1>Unduh video dengan kualitas baik ada disini!</h1>
+        <input
+          type="text"
+          id="url"
+          name="url"
+          placeholder="Letakan URL di sini!"
+        /><br />
+        <button type="submit">Download</button>
+      </form>
+    </div>
+    <!-- flash message -->
+    {% with messages = get_flashed_messages() %} {% if messages %}
+    <ul id="flash-messages">
+      {% for message in messages %}
+      <li>{{ message }}</li>
+      {% endfor %}
+    </ul>
+    {% endif %} {% endwith %}
+    <!-- about -->
+    <section id="about">
+      <h1>Mengunduh video YouTube secara online</h1>
+      <p>
+        Squeeze hadir untuk membantu anda mengunduh video dari YouTube dalam
+        format berkualitas HD. Squeeze mendukung unduhan dalam semua format
+        video seperti : MOV, MPEG-1, MPEG-2, MPEG4, MP4, MPG, AVI, WMV, MPEGPS,
+        FLV, 3GPP, WebM, dll. Anda dapat dengan mudah mengunduh ribuan video
+        dari YouTube secara gratis.
+      </p>
+    </section>
+    <!-- tutorial -->
+    <section id="tutorial">
+      <h1>Tutorial</h1>
+      <div class="col-tutor">
+        <img src="../static/img/copyurl.png" alt="tutor1" class="tutor_img" />
+        <p>
+          Cari link yang akan diunduh, lebih baik mengambil link dari fitur
+          "Copy link address"
+        </p>
+      </div>
+      <div class="col-tutor">
+        <img src="../static/img/tutor1.png" alt="tutor2" class="tutor_img" />
+        <p>Jika sudah benar, "Paste" link tersebut di kotak input.</p>
+      </div>
+      <div class="col-tutor">
+        <img src="../static/img/tutor2.png" alt="tutor3" class="tutor_img" />
+        <p>
+          Kemudian klik tombol "Download" dan tunggu sistem akan mengunduh video
+          tersebut dengan kualitas terbaik.
+        </p>
+      </div>
+      <br />
+      <h1>Fitur</h1>
+      <div class="col-feature">
+        <i class="fa-solid fa-gift"></i>
+        <h3>Unduhan gratis</h3>
+        <p>Unduh secara gratis tanpa batas.</p>
+      </div>
+      <div class="col-feature">
+        <i class="fa-regular fa-file-video"></i>
+        <h3>Format MP4/Video</h3>
+        <p>Hasil berkualitas terbaik.</p>
+      </div>
+      <div class="col-feature">
+        <i class="fa-solid fa-download"></i>
+        <h3>Unduh Dengan Mudah</h3>
+        <p>Kompatibel dengan semua browsers.</p>
+      </div>
+    </section>
+    <!-- footer -->
+    <footer>&copy<em id="date"></em>Squeeze</footer>
+    <script
+      src="https://kit.fontawesome.com/099a19da29.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="../static/responsive.js"></script>
+  </body>
+</html>
