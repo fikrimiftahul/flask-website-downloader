@@ -3,7 +3,7 @@ import yt_dlp
 import os
 
 app = Flask(__name__)
-app.secret_key = "6bfe8e2458ce0ab69d75d9d124381b8b"
+app.secret_key = "Paste secret key"
 
 
 @app.route("/")
